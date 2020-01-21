@@ -1,0 +1,11 @@
+version: "3.7"
+services: 
+    timeservice:
+        build: Timeservice/.
+        ports:
+            - "8080:5001"
+    loggerservice:
+        build: Loggerservice/.
+        ports:
+            - "8081:5002"
+    
