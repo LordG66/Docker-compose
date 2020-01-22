@@ -1,5 +1,4 @@
 FROM nginx
 WORKDIR /app
 COPY nginx.conf /etc/nginx/nginx.conf
-# COPY ./project/flask-app/static ./static
-# COPY ./project/flask-app/templates ./templates
+COPY ./static ./static
