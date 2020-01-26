@@ -1,0 +1,9 @@
+FROM maven:alpine
+ENV DB_DIALECT HSQLDB
+ENV DB_URL jdbc:hsqldb:file:lavagna
+ENV DB_USER sa
+ENV DB_PASS ""
+ENV SPRING_PROFILE dev
+WORKDIR /app
+COPY ./project/ .
+RUN mvn verify -DskipTests

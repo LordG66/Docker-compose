@@ -1,0 +1,11 @@
+FROM maven:3.6.3-jdk-8 as base
+ENV DB_DIALECT HSQLDB
+ENV DB_URL jdbc:hsqldb:file:lavagna
+ENV DB_USER sa
+ENV DB_PASS ""
+ENV SPRING_PROFILE dev
+WORKDIR /lavagna
+COPY ./project/pom.xml /lavagna
+RUN mvn verify
+COPY ./project/ /lavagna
+ENTRYPOINT [ "sh", "entrypoint.sh" ]
