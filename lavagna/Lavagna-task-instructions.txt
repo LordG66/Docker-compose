@@ -40,7 +40,6 @@ http://nginx.org/en/docs/http/ngx_http_core_module.html#location
 
 (6) Thin docker - create a Dockerfile based on a maven docker image and use multi-stage docker to create an alpine JRE based lavagna image. 
     -  Note the difference in size between Step B and Step C
-
 (7) Add another server, running in it's own container, which serves documentation on port 8081. Additional instructions are in the readme.
 
 At the end of the excercise you should be able to start 4 containers using "docker-compose up":
