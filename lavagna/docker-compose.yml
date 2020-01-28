@@ -8,11 +8,6 @@ services:
                 buildno: 1
         environment:
             - "MYSQL_ROOT_PASSWORD=1234"
-            - DB_URL="jdbc:mysql://mysql:3306/lavagna?autoReconnect=true&useSSL=false"
-            - "DB_DIALECT=mysql"
-            - "DB_USER=root"
-            - "DB_PASS=1234"
-            - "SPRING_PROFILE=dev"
         volumes: 
             - "sqlvol:/var/lib/mysql"
         networks: 
@@ -25,8 +20,12 @@ services:
                 buildno: 1
         networks: 
             - lavagna
-        # ports:
-        #     - "8080:8080"
+        environment: 
+            - "DB_URL=jdbc:mysql://mysql:3306/lavagna?autoReconnect=true&useSSL=false"
+            - "DB_DIALECT=MYSQL"
+            - "DB_USER=root"
+            - "DB_PASS=1234"
+            - "SPRING_PROFILE=dev"
     proxy:
         build:
             context: .
